@@ -15,7 +15,8 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of = "id")
 public class Usuario {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String titulo;
     private String mensagem;
@@ -24,19 +25,20 @@ public class Usuario {
     private String curso;
 
     public void atualizarinformacoes(@Valid DadosAtualizacao dados) {
-       if (dados.titulo() != null){
-        this.titulo = dados.titulo();
-    }
-        if (dados.mensagem() != null){
+        if (dados.titulo() != null) {
+            this.titulo = dados.titulo();
+        }
+        if (dados.mensagem() != null) {
             this.mensagem = dados.mensagem();
         }
-        if (dados.estado() != null){
+        if (dados.estado() != null) {
             this.estado = dados.estado();
         }
-        if (dados.autor() != null){
+        if (dados.autor() != null) {
             this.autor = dados.autor();
         }
-        if (dados.curso() != null){
+        if (dados.curso() != null) {
             this.curso = dados.curso();
         }
+    }
 }
